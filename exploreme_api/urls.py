@@ -18,13 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from .src.user.views import UserViewSet
-
-
-router = routers.SimpleRouter()
-router.register(r'users', UserViewSet)
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include((router.urls, 'users'))),
+    path('api/auth/', include("exploreme_api.src.user.urls")),
 ]
